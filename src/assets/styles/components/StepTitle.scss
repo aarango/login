@@ -1,0 +1,13 @@
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 50px;
+    background-color: #21c08b;
+  }
+  
+  .main__title {
+    color: white;
+    font-size: 25px;
+  }
