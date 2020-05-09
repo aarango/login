@@ -1,7 +1,7 @@
 import React from 'react';
 import '../assets/styles/components/Register.scss';
 
-export class RegisterPersonal extends React.Component {
+class RegisterPersonal extends React.Component {
   pressContinue = (e) => {
     e.preventDefault();
     this.props.nextStep();
@@ -21,8 +21,8 @@ export class RegisterPersonal extends React.Component {
             <input className='input' defaultValue={values.occupation} onChange={handleChange('occupation')} label='occupation' type='text' placeholder='Ocupación' />
             <input className='input' defaultValue={values.city} onChange={handleChange('city')} label='city' type='text' placeholder='Ciudad' />
             <input className='input' defaultValue={values.biogra} onChange={handleChange('biogra')} label='biogra' type='text' ctype='text' placeholder='Biografía' />
-            <button className='button' onClick={this.pressContinue}>Continuar</button>
-            <button className='button' onClick={this.pressBack}>Regresar</button>
+            <button type='button' className='button' onClick={this.pressContinue}>Continuar</button>
+            <button type='button' className='button' onClick={this.pressBack}>Regresar</button>
           </form>
         </section>
       </section>

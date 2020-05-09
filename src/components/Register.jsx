@@ -1,7 +1,7 @@
 import React from 'react';
 import '../assets/styles/components/Register.scss';
 
-export class Register extends React.Component {
+class Register extends React.Component {
 
   PressContinue = (e) => {
     e.preventDefault();

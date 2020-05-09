@@ -1,6 +1,6 @@
 import React from 'react';
 
-export class RegisterConfirmation extends React.Component {
+class RegisterConfirmation extends React.Component {
 
   pressContinue = (e) => {
     e.preventDefault();
