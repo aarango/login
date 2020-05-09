@@ -17,7 +17,7 @@ class Register extends React.Component {
             <input className='input' defaultValue={values.name} onChange={handleChange('name')} label='name' type='text' placeholder='Nombre' />
             <input className='input' defaultValue={values.lastname} onChange={handleChange('lastname')} label='lastname' type='text' placeholder='Apellido' />
             <input className='input' defaultValue={values.email} onChange={handleChange('email')} label='email' type='text' ctype='text' placeholder='Correo' />
-            <button className='button' onClick={this.PressContinue}>Continuar</button>
+            <button className='button' type='submit' onClick={this.PressContinue}>Continuar</button>
           </form>
         </section>
       </section>

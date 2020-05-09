@@ -36,8 +36,8 @@ class RegisterConfirmation extends React.Component {
               <dt className='text'>Biografia:</dt>
               <dd>{biogra}</dd>
             </dl>
-            <button className='button' onClick={this.pressContinue}>Continuar</button>
-            <button className='button' onClick={this.pressBack}>Regresar</button>
+            <button className='button' type='submit' onClick={this.pressContinue}>Continuar</button>
+            <button className='button' type='submit' onClick={this.pressBack}>Regresar</button>
           </form>
         </section>
       </section>

@@ -4,6 +4,10 @@ import RegisterPersonal from './RegisterPersonal';
 import RegisterConfirmation from './RegisterConfirmation';
 import Success from './Success';
 import Register from './Register';
+import StepperBar from './StepperBar';
+import StepTitle from './StepTitle';
+
+import '../assets/styles/components/StepTitle.scss';
 
 export class User extends React.Component {
   constructor(props) {
@@ -69,7 +73,7 @@ export class User extends React.Component {
           />
         );
       case 4:
-        return <Success />;
+        return <Success message='Gracias por suscriberte uno de nuestros asesores se comunicará contigo.' />;
       default:
     }
   }
@@ -79,12 +83,8 @@ export class User extends React.Component {
 
     return (
       <>
-        <h2>
-          Step
-          {step}
-          {' '}
-          of 3.
-        </h2>
+        <StepperBar valor={step} />
+        <StepTitle title={`${step}${' '}`} />
         {this.showStep()}
       </>
     );
