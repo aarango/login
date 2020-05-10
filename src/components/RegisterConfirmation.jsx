@@ -15,7 +15,7 @@ class RegisterConfirmation extends React.Component {
 
   render() {
     const {
-      values: { name, lastname, email, occupation, city, biogra },
+      values: { firstName, lastname, email, occupation, city, biogra },
     } = this.props;
     return (
       <section className='register'>
@@ -24,7 +24,7 @@ class RegisterConfirmation extends React.Component {
             <dl>
 
               <dt className='text'>Nombre:</dt>
-              <dd>{name}</dd>
+              <dd>{firstName}</dd>
               <dt className='text'>Apellido:</dt>
               <dd>{lastname}</dd>
               <dt className='text'>Email:</dt>

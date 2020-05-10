@@ -1,33 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import '../assets/styles/components/Register.scss';
 
-const Dynamic = ({ onSubmit_, title, properties }) => {
+const Dynamic = ({ nextStep, onSubmit_, title, properties }) => {
 
   const [form, setForm] = useState({});
   const [keys, setkeys] = useState([]);
   const [render, setRender] = useState([]);
   useEffect(() => {
-    let datos = [];
+    let data = [];
     let initForm = {};
     for (const element in properties) {
-      datos = [...datos, properties[element]];
+      data = [...datos, properties[element]];
       console.log(element);
       if (properties[element].default) {
         initForm = { ...initForm, [element]: properties[element].default };
       }
     }
+
     setForm(initForm);
     setkeys(Object.keys(properties));
-    setRender(datos);
+    setRender(data);
   }, []);
 
   const onSubmit = (e) => {
     e.preventDefault();
+    nextStep();
     if (onSubmit_) {
-      this.props.nextStep();
+      onSubmit_(form);
     }
-  };
-
+  }
 
   const onChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -37,11 +38,11 @@ const Dynamic = ({ onSubmit_, title, properties }) => {
     <section className='register'>
       <section className='register__container'>
         <h1>{title}</h1>
-        <form className='register__container--form'>
+        <form onSubmit={onSubmit} className='register__container--form'>
           {render.map((r, i) => {
             return (
               <div key={keys[i]} className='form-group'>
-                <label>{r.title}</label>
+                <h1>{r.title}</h1>
                 <input
                   type={r.type}
                   name={keys[i]}
@@ -53,7 +54,7 @@ const Dynamic = ({ onSubmit_, title, properties }) => {
               </div>
             );
           })}
-          <button className='button' onSubmit={onSubmit} type='submit'>
+          <button className='button' type='submit'>
             Continuar
           </button>
         </form>
