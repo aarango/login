@@ -15,7 +15,7 @@ class RegisterPersonal extends React.Component {
   render() {
     const { values, handleChange } = this.props;
     return (
-      <section className='register'>
+      <section className='register '>
         <section className='register__container'>
           <form className='register__container--form'>
             <input className='input' defaultValue={values.occupation} onChange={handleChange('occupation')} label='occupation' type='text' placeholder='Ocupación' />

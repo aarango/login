@@ -1,0 +1,25 @@
+{
+  "title": "Registro",
+  "type": "object",
+
+
+  "properties": {
+    "firstName": {
+      "type": "string",
+      "title": "Nombre",
+      "placeholder": "Ingrese su nombre",
+      "required":true
+    },
+    "lastName": {
+      "type": "string",
+      "title": "Apellido",
+      "placeholder": "Ingrese su apellido",
+      "required":true
+    },
+    "age": {
+      "type": "number",
+      "title": "Edad",
+      "required":true
+    }
+  }
+}
