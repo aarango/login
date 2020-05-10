@@ -4,6 +4,8 @@ import StepperBar from './StepperBar';
 import Form from '../formschema/FormTemplate';
 import CreateFormComponent from './CreateFormComponent';
 
+import '../assets/styles/components/Register.scss';
+
 class UserForm extends React.Component {
   constructor(props) {
     super(props);
@@ -90,7 +92,7 @@ class UserForm extends React.Component {
 
     return (
       <>
-        <form>
+        <form className='register__container--form'>
           {this.getFormFields(step)}
         </form>
         <StepperBar valor={step} />

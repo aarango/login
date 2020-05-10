@@ -19,10 +19,10 @@ class CreateFormComponent extends React.Component {
   };
   */
  createField = (fieldTemplate) => {
-   debugger
-   const field = React.createElement(fieldTemplate.Component, { type: fieldTemplate.type, placeholder: fieldTemplate.placeholder });
+
+   const field = React.createElement(fieldTemplate.component, { type: fieldTemplate.type, placeholder: fieldTemplate.placeholder, className: 'forminput' });
    return field;
-   
+
  }
 
  render() {
@@ -31,7 +31,9 @@ class CreateFormComponent extends React.Component {
      <section className='register'>
        <section className='register__container'>
          <h1>{template.title}</h1>
-
+         {template.fields.forEach((field) => {
+           return this.createField(field);
+         })}
        </section>
      </section>
    );
