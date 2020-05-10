@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import '../../../assets/styles/components/Register.scss';
+import '../assets/styles/components/Register.scss';
 
-const Dynamic = ({ onSubmit_, title,  properties }) => {
+const Dynamic = ({ onSubmit_, title, properties }) => {
+
   const [form, setForm] = useState({});
   const [keys, setkeys] = useState([]);
   const [render, setRender] = useState([]);
@@ -19,20 +20,24 @@ const Dynamic = ({ onSubmit_, title,  properties }) => {
     setkeys(Object.keys(properties));
     setRender(datos);
   }, []);
+
   const onSubmit = (e) => {
     e.preventDefault();
     if (onSubmit_) {
-      onSubmit_(form);
+      this.props.nextStep();
     }
   };
+
+
   const onChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
+
   return (
     <section className='register'>
       <section className='register__container'>
-      <h1>{title}</h1>
-        <form onSubmit={onSubmit} className='register__container--form'>
+        <h1>{title}</h1>
+        <form className='register__container--form'>
           {render.map((r, i) => {
             return (
               <div key={keys[i]} className='form-group'>
@@ -42,14 +47,13 @@ const Dynamic = ({ onSubmit_, title,  properties }) => {
                   name={keys[i]}
                   className='input'
                   placeholder={r.title}
-                  defaultValue={r.default}
                   onChange={onChange}
                   required={r.required || false}
                 />
               </div>
             );
           })}
-          <button className='button' type='submit'>
+          <button className='button' onSubmit={onSubmit} type='submit'>
             Continuar
           </button>
         </form>

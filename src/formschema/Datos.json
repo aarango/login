@@ -19,6 +19,7 @@
     "age": {
       "type": "number",
       "title": "Edad",
+      "placeholder": "Ingrese su edad",
       "required":true
     }
   }

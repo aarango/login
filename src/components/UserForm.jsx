@@ -3,13 +3,12 @@ import React from 'react';
 import RegisterPersonal from './RegisterPersonal';
 import RegisterConfirmation from './RegisterConfirmation';
 import Success from './Success';
-import Register from './Register';
 import StepperBar from './StepperBar';
 import StepTitle from './StepTitle';
-import InputText from './InputText';
-
+import Dynamic from './Dynamic';
 import '../assets/styles/components/StepTitle.scss';
-import Data from '../formschema/FormShema.json';
+
+import json from "../formschema/Datos.json";
 
 export class UserForm extends React.Component {
   constructor(props) {
@@ -51,10 +50,15 @@ export class UserForm extends React.Component {
     switch (step) {
       case 1:
         return (
-          <Register
+          <Dynamic
+            title={json.title}
+            description={json.description}
+            properties={json.properties}
             nextStep={this.nextStep}
+            prevStep={this.prevStep}
             handleChange={this.handleChange}
             values={values}
+            // onSubmit_={(e) => alert(JSON.stringify(e))}
           />
         );
       case 2:
@@ -85,14 +89,8 @@ export class UserForm extends React.Component {
 
     return (
       <>
-        {Data.map((input, i) => {
-          console.log(Data[i]);
-          return <InputText key={i} params={input} />;
-        })}
-
-        <StepperBar valor={step} />
-        <StepTitle title={`${step}${' '}`} />
         {this.showStep()}
+        <StepperBar valor={step} />
       </>
     );
   }
