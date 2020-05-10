@@ -6,10 +6,12 @@ import Success from './Success';
 import Register from './Register';
 import StepperBar from './StepperBar';
 import StepTitle from './StepTitle';
+import InputText from './InputText';
 
 import '../assets/styles/components/StepTitle.scss';
+import Data from '../formschema/FormShema.json';
 
-export class User extends React.Component {
+export class UserForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -83,6 +85,11 @@ export class User extends React.Component {
 
     return (
       <>
+        {Data.map((input, i) => {
+          console.log(Data[i]);
+          return <InputText key={i} params={input} />;
+        })}
+
         <StepperBar valor={step} />
         <StepTitle title={`${step}${' '}`} />
         {this.showStep()}
@@ -91,4 +98,4 @@ export class User extends React.Component {
   }
 }
 
-export default User;
+export default UserForm;

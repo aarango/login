@@ -1,0 +1,14 @@
+[
+  {
+    "type": "text",
+    "name": "FirstName",
+    "classname": "input2",
+    "placeholder": "Enter first name"
+  },
+  {
+    "type": "text",
+    "name": "Surname",
+    "classname": "input2",
+    "placeholder": "Enter surname"
+  }
+]
