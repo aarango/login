@@ -13,31 +13,54 @@ class UserForm extends React.Component {
       step: 0,
       disablePrevButton: true,
       disableNextButton: false,
+      myform: {},
     };
     this.template = Form.template;
   }
 
   nextForm = (event) => {
+    //event.preventDefault();
     const { step } = this.state;
     const disableNext = this.disableButton('next', step + 1);
     const disablePrev = this.disableButton('prev', step + 1);
-    this.setState({ step: step + 1, disableNextButton: disableNext, disablePrevButton: disablePrev });
-    event.preventDefault();
+    this.setState({
+      step: step + 1,
+      disableNextButton: disableNext,
+      disablePrevButton: disablePrev,
+    });
   };
 
   prevForm = (event) => {
     const { step } = this.state;
     const disableNext = this.disableButton('next', step - 1);
     const disablePrev = this.disableButton('prev', step - 1);
-    this.setState({ step: step - 1, disableNextButton: disableNext, disablePrevButton: disablePrev });
+    this.setState({
+      step: step - 1,
+      disableNextButton: disableNext,
+      disablePrevButton: disablePrev,
+    });
     event.preventDefault();
+  };
+
+  handlerChange = (event) => {
+    this.setState({
+      myform: {
+        ...this.state.myform,
+        [event.target.title]: event.target.value,
+      },
+    });
   };
 
   getFormFields = (formIndex = 0) => {
     const templateFields = this.template[formIndex];
-    const formFields = <CreateFormComponent template={templateFields} />;
+    const formFields = (
+      <CreateFormComponent
+        template={templateFields}
+        _onChange={this.handlerChange}
+      />
+    );
     return formFields;
-  }
+  };
 
   disableButton = (type, step) => {
     let disableButton = true;
@@ -51,7 +74,13 @@ class UserForm extends React.Component {
       default:
     }
     return disableButton;
-  }
+  };
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    this.myFormRef.reset();
+    this.nextForm();
+  };
 
   render() {
     const { step } = this.state;
@@ -59,10 +88,27 @@ class UserForm extends React.Component {
       <>
         <section className='register'>
           <section className='register__container'>
-            <form className='register__container--form form-group'>
+            <form
+              ref={(event) => this.myFormRef = event}
+              onSubmit={this.onSubmit}
+              className='register__container--form form-group'
+            >
               {this.getFormFields(step)}
-              <button className='button' type='submit' onClick={this.prevForm} disabled={this.state.disablePrevButton}>Previos</button>
-              <button className='button' type='submit' onClick={this.nextForm} disabled={this.state.disableNextButton}>Next</button>
+              <button
+                className='button'
+                type='submit'
+                onClick={this.prevForm}
+                disabled={this.state.disablePrevButton}
+              >
+                Previos
+              </button>
+              <button
+                className='button'
+                type='submit'
+                disabled={this.state.disableNextButton}
+              >
+                Next
+              </button>
             </form>
           </section>
         </section>

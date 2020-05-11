@@ -3,7 +3,7 @@ import '../assets/styles/components/Register.scss';
 
 class CreateFormComponent extends React.Component {
 
-  createField = (fieldTemplate, key) => {
+  createField = (fieldTemplate, key, _onChange) => {
     const field = React.createElement(
       fieldTemplate.component,
       { type: fieldTemplate.type,
@@ -12,20 +12,22 @@ class CreateFormComponent extends React.Component {
         key: `form-input-${key}`,
         label: fieldTemplate.label,
         title: fieldTemplate.title,
+        required: fieldTemplate.required,
+        onChange: _onChange,
       },
     );
     return field;
   }
 
   render() {
-    const { template } = this.props;
+    const { template, _onChange } = this.props;
     return (
       <>
         <h1>{template.title}</h1>
         {
           template.fields
             .map((field, index) => {
-              return this.createField(field, index);
+              return this.createField(field, index, _onChange);
             })
         }
       </>

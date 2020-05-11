@@ -12,6 +12,7 @@ const form = {
           'component': 'input',
         },
         {
+          'title': 'Password',
           'label': 'Password',
           'type': 'password',
           'required': true,
@@ -24,6 +25,7 @@ const form = {
       'title': 'Personal Information',
       'fields': [
         {
+          'title': 'First Name',
           'label': 'First Name',
           'type': 'string',
           'placeholder': 'Add you Name',
@@ -31,6 +33,7 @@ const form = {
           'component': 'input',
         },
         {
+          'title': 'Last Name',
           'label': 'Last Name',
           'type': 'string',
           'placeholder': 'Add your Last Name',
