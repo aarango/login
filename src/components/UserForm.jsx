@@ -59,7 +59,7 @@ class UserForm extends React.Component {
       <>
         <section className='register'>
           <section className='register__container'>
-            <form className='register__container--form'>
+            <form className='register__container--form form-group'>
               {this.getFormFields(step)}
               <button className='button' type='submit' onClick={this.prevForm} disabled={this.state.disablePrevButton}>Previos</button>
               <button className='button' type='submit' onClick={this.nextForm} disabled={this.state.disableNextButton}>Next</button>

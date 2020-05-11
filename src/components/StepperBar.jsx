@@ -26,7 +26,7 @@ export default function ProgressMobileStepper({ valor }) {
     <div>
       <MobileStepper
         variant='progress'
-        steps={5}
+        steps={3}
         position='static'
         activeStep={valor}
         className={classes.root}
