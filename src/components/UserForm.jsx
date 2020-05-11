@@ -12,23 +12,23 @@ class UserForm extends React.Component {
     this.state = {
       step: 0,
       disablePrevButton: true,
-      disableNextButton: false
+      disableNextButton: false,
     };
     this.template = Form.template;
   }
 
   nextForm = (event) => {
     const { step } = this.state;
-    const disableNext = this.disableButton("next", step + 1);
-    const disablePrev = this.disableButton("prev", step + 1)
+    const disableNext = this.disableButton('next', step + 1);
+    const disablePrev = this.disableButton('prev', step + 1);
     this.setState({ step: step + 1, disableNextButton: disableNext, disablePrevButton: disablePrev });
     event.preventDefault();
   };
 
   prevForm = (event) => {
     const { step } = this.state;
-    const disableNext = this.disableButton("next", step - 1);
-    const disablePrev = this.disableButton("prev", step - 1)
+    const disableNext = this.disableButton('next', step - 1);
+    const disablePrev = this.disableButton('prev', step - 1);
     this.setState({ step: step - 1, disableNextButton: disableNext, disablePrevButton: disablePrev });
     event.preventDefault();
   };
@@ -41,7 +41,7 @@ class UserForm extends React.Component {
 
   disableButton = (type, step) => {
     let disableButton = true;
-    switch(type) {
+    switch (type) {
       case 'prev':
         disableButton = step <= 0;
         break;
@@ -57,11 +57,16 @@ class UserForm extends React.Component {
     const { step } = this.state;
     return (
       <>
-        <form className='register__container--form'>
-          {this.getFormFields(step)}
-          <button onClick={this.prevForm} disabled={this.state.disablePrevButton}>Previos</button>
-          <button onClick={this.nextForm} disabled={this.state.disableNextButton}>Next</button>
-        </form>
+        <section className='register'>
+          <section className='register__container'>
+            <form className='register__container--form'>
+              {this.getFormFields(step)}
+              <button className='button' type='submit' onClick={this.prevForm} disabled={this.state.disablePrevButton}>Previos</button>
+              <button className='button' type='submit' onClick={this.nextForm} disabled={this.state.disableNextButton}>Next</button>
+            </form>
+          </section>
+        </section>
+
         <StepperBar valor={step} />
       </>
     );

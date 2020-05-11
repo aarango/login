@@ -4,15 +4,15 @@ const form = {
       'title': 'Login Info',
       'fields': [
         {
-          'name': 'Email',
-          'type': 'email',
           'title': 'Email',
-          'placeholder': 'Ingrese su Email',
+          'type': 'email',
+          'label': 'Email',
+          'placeholder': 'Insert your Email',
           'required': true,
           'component': 'input',
         },
         {
-          'name': 'Password',
+          'label': 'Password',
           'type': 'password',
           'required': true,
           'component': 'input',
@@ -24,14 +24,14 @@ const form = {
       'title': 'Personal Information',
       'fields': [
         {
-          'name': 'First Name',
+          'label': 'First Name',
           'type': 'string',
           'placeholder': 'Add you Name',
           'required': true,
           'component': 'input',
         },
         {
-          'name': 'Last Name',
+          'label': 'Last Name',
           'type': 'string',
           'placeholder': 'Add your Last Name',
           'required': true,
@@ -39,6 +39,18 @@ const form = {
         },
       ],
     },
+    {
+      'title': 'Full registration',
+      'fields': [
+        {
+          'label': 'First Name',
+          'type': 'string',
+          'placeholder': 'Your registration was successfully completed, one of our advisers will contact',
+          'component': 'input',
+        },
+      ],
+    },
+
   ],
 };
 
